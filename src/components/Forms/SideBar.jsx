@@ -2,7 +2,8 @@ import GeneralInfo from "./GeneralInfo"
 
 function SideBar({cvData, handleInputChange}) {
   return (
-    <div>
+    <div > 
+      <GeneralInfo inputChange={handleInputChange} cvData={cvData}/>
       <GeneralInfo inputChange={handleInputChange} cvData={cvData}/>
     </div>
   )

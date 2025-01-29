@@ -3,12 +3,12 @@ import Input from "./Input"
 function GeneralInfo({cvData, inputChange}) {
   
   return (
-    <div>
-      <h2>General Information</h2>
+    <div className="w-full shadow-lg p-4">
+      <h2 className="text-3xl">General Information</h2>
       <form>
-        <div>
+        <div className="flex-cols">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" onChange={inputChange} value={cvData.generalInfo.name}/>
+          <input type="text" name="name" onChange={inputChange} value={cvData.generalInfo.name} className="w-full bg-stone-100 p-2 text-stone-700 rounded-md"/>
         </div>
 
         <div>
