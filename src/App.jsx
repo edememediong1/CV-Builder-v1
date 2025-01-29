@@ -51,11 +51,11 @@ function App() {
 
   return (
     <div>
-       <main className="flex justify-center">
-        <div className="w-1/3">
+       <main className=" flex-cols space-y-6 p-3 md:flex justify-center">
+        <div className=" w-full md:w-1/3 shadow-md p-4">
           <SideBar handleInputChange={handleInputChange} cvData={cvData} />
         </div>
-        <div className="w-2/3">
+        <div className="w-full md:w-2/3 shadow-md p-4">
           <Preview cvData={cvData}/>
         </div>
        </main>
