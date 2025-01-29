@@ -1,8 +1,10 @@
+import GeneralInfo from "./GeneralInfo"
 
-
-function SideBar() {
+function SideBar({handleInputChange}) {
   return (
-    <div>SideBar</div>
+    <div>
+      <GeneralInfo inputChange={handleInputChange} />
+    </div>
   )
 }
 
