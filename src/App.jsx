@@ -1,32 +1,59 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SideBar from "./components/Forms/SideBar"
 import Preview from "./components/Preview/Preview"
 
 
 function App() {
-  const [cvData, setcvData] = useState({
-    generalInfo: {
-      name: "",
-      email: ""
+  const [cvData, setcvData] = useState(() => {
+    const savedData = localStorage.getItem("cvData")
+    return savedData
+      ? JSON.parse(savedData)
+      : {
+          generalInfo: {
+            name: "",
+            email: "",
+            phone: "",
+            address: "",
+            linkedIn: "",
+          },
+        }
+  }) 
+  console.log("cvData", cvData)
+
+ 
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("cvData")
+    console.log("cvData loaded", savedData)
+    if (savedData){
+      setcvData(JSON.parse(savedData))
     }
-  })  
+  }, [])
+
+
+  useEffect(() => {
+    localStorage.setItem("cvData", JSON.stringify(cvData))
+    console.log("cvData saved", cvData)
+  }, [cvData])
+
+
 
   function handleInputChange(e){
     const {name, value} = e.target
-    setcvData({
-      ...cvData,
+    setcvData((prevData) =>({
+      ...prevData,
       generalInfo: {
-        ...cvData.generalInfo,
+        ...prevData.generalInfo,
         [name]: value
       }
-    })
+    }))
   }
 
   return (
     <div>
        <main className="flex justify-center">
         <div className="w-1/3">
-          <SideBar handleInputChange={handleInputChange} />
+          <SideBar handleInputChange={handleInputChange} cvData={cvData} />
         </div>
         <div className="w-2/3">
           <Preview cvData={cvData}/>

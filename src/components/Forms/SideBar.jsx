@@ -1,9 +1,9 @@
 import GeneralInfo from "./GeneralInfo"
 
-function SideBar({handleInputChange}) {
+function SideBar({cvData, handleInputChange}) {
   return (
     <div>
-      <GeneralInfo inputChange={handleInputChange} />
+      <GeneralInfo inputChange={handleInputChange} cvData={cvData}/>
     </div>
   )
 }
