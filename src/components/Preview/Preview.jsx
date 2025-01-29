@@ -6,11 +6,18 @@ function Preview({cvData}) {
         <h2>Preview</h2>
         <div>
             <h2>{generalInfo.name || "Your fullname"}</h2>
-            {/* <div>
+            <p>{generalInfo.address || "City, Country"}</p>
+            <div>
                 <span>
-                    <p>{generalInfo.email}</p>
+                    <p>{generalInfo.email || "Your email"}</p>
                 </span>
-            </div> */}
+                <span>
+                    <p>{generalInfo.phone || "Your Phone Email"}</p>
+                </span>
+                <span>
+                    <p>{generalInfo.linkedIn || "Your Linkedin"}</p>
+                </span>
+            </div>
 
         </div>
     </div>

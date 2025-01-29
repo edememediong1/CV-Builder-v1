@@ -1,10 +1,10 @@
 
 
-function Input({inputChange, name, type}) {
+function Input({inputChange, name, ...props}) {
   return (
     <div>
         <label htmlFor={name}>{name}</label>
-        <input type={type} name={name} onChange={inputChange} id={name}/>
+        <input name={name} onChange={inputChange}/>
     </div>
   )
 }
