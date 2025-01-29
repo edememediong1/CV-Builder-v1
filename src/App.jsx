@@ -5,7 +5,10 @@ function App() {
   
   return (
     <div>
-        
+       <main className="flex">
+        <SideBar />
+        <Preview />
+       </main>
     </div>
   )
 }
