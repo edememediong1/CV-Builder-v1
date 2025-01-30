@@ -1,14 +1,21 @@
+import { useState } from "react"
 import Input from "./Input"
 
 function GeneralInfo({cvData, inputChange}) {
-  
+  const [activeIndex, setActiveIndex] = useState(null)
+
+  const inputClass = "w-full bg-stone-100 p-2 text-stone-700 rounded-md outline-0"
   return (
     <div className="w-full shadow-lg p-4">
-      <h2 className="text-3xl">General Information</h2>
+      <section>
+        <h2 className="text-3xl">General Information</h2>
+        
+      </section>
+      
       <form>
         <div className="flex-cols">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" onChange={inputChange} value={cvData.generalInfo.name} className="w-full bg-stone-100 p-2 text-stone-700 rounded-md"/>
+          <input type="text" name="name" onChange={inputChange} value={cvData.generalInfo.name} className={inputClass}/>
         </div>
 
         <div>
