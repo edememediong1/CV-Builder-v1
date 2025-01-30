@@ -1,20 +1,25 @@
 import { useState } from "react"
-import Input from "./Input"
+// import Input from "./Input"
+import up from "../../assets/up.svg"
+import down from "../../assets/down.svg"
 
 function GeneralInfo({cvData, inputChange}) {
   const [activeIndex, setActiveIndex] = useState(null)
-
   const inputClass = "w-full bg-stone-100 p-2 text-stone-700 rounded-md outline-0"
+
+  function handleActive(){
+    setActiveIndex(activeIndex === 0 ? null : 0)
+  }
   return (
     <div className="w-full shadow-lg p-4">
-      <section>
-        <h2 className="text-3xl">General Information</h2>
-        
+      <section className="flex justify-between">
+        <h2 className="text-2xl font-bold">General Information</h2>
+        <img className="w-6 h-6" src={activeIndex === 0 ? up : down} alt="arrow" onClick={handleActive}/>
       </section>
       
-      <form>
+      {activeIndex == 0 ? (<form>
         <div className="flex-cols">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className="">Name</label>
           <input type="text" name="name" onChange={inputChange} value={cvData.generalInfo.name} className={inputClass}/>
         </div>
 
@@ -37,9 +42,7 @@ function GeneralInfo({cvData, inputChange}) {
           <label htmlFor="linkedIn">Linkedin</label>
           <input type="text" name="linkedIn" onChange={inputChange} value={cvData.generalInfo.linkedIn}/>
         </div>
-
-        
-      </form>
+      </form>) : null}
     </div>
   )
 }

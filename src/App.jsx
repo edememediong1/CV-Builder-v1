@@ -55,7 +55,7 @@ function App() {
         <div className=" w-full md:w-1/3 shadow-md p-4">
           <SideBar handleInputChange={handleInputChange} cvData={cvData} />
         </div>
-        <div className="w-full md:w-2/3 shadow-md p-4">
+        <div className="w-full h-screen md:w-2/3 shadow-md p-4">
           <Preview cvData={cvData}/>
         </div>
        </main>
